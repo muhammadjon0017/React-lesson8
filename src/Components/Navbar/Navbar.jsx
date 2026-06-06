@@ -1,7 +1,13 @@
 import "./Navbar.css";
-import { FaSearch, FaBell, FaUserCircle, FaPlus, FaUser } from "react-icons/fa";
+import {
+  FaSearch,
+  FaBell,
+  FaUserCircle,
+  FaPlus,
+  FaUser,
+} from "react-icons/fa";
 
-function Navbar() {
+function Navbar({ setBoll, users }) {
   return (
     <div className="navbar">
       <div className="navbar__container">
@@ -11,22 +17,25 @@ function Navbar() {
         </div>
 
         <div className="navbar__actions">
-          <button className="add-user-btn">
+          <button
+            className="add-user-btn"
+            onClick={() => setBoll(true)}
+          >
             <FaPlus /> Qo'shish
           </button>
 
           <button className="nav-btn" title="Bildirishnomalar">
             <FaBell />
-            <span className="badge">{3}</span>
+            <span className="badge">3</span>
           </button>
 
-          <button className="nav-btn" title="Bildirishnomalar">
+          <button className="nav-btn" title="Foydalanuvchilar soni">
             <FaUser />
-            <span className="badge">{0}</span>
+            <span className="badge">{users?.length || 0}</span>
           </button>
 
           <div className="navbar__user">
-            <span>Samatov</span>
+            <span>Muhammad</span>
             <FaUserCircle className="user-avatar" />
           </div>
         </div>

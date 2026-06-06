@@ -109,6 +109,10 @@
   font-weight: 600;
 }
 
+.cancel-btn:hover {
+  background-color: red;
+}
+
 .submit-btn {
   padding: 10px 20px;
   background: #007bff;

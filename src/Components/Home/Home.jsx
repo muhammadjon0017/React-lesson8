@@ -8,12 +8,12 @@ import {
   FaEdit,
 } from "react-icons/fa";
 
-function Home({ users }) {
+function Home({ users, setUsers }) {
   return (
     <div className="home">
       <div className="home__container">
         <div className="home__header">
-          <h1>Foydalanuvchilar Ro'yxati.</h1>
+          <h1>Foydalanuvchilar Ro'yxati</h1>
         </div>
 
         <div className="home__table-wrapper">
@@ -39,41 +39,49 @@ function Home({ users }) {
                   </th>
                 </tr>
               </thead>
+
               <tbody>
-                {users &&
-                  users.map((user, index) => (
-                    <tr key={user.id}>
-                      <td>
-                        <div className="avatar-mini">{index + 1}</div>
-                      </td>
-                      <td>
-                        <div className="user-name-cell">
-                          {/* <div className="avatar-mini">
-                            {user.name.charAt(0).toUpperCase()}
-                          </div> */}
-                          {user.name}
-                        </div>
-                      </td>
-                      <td>{user.email}</td>
-                      <td>{user.phone}</td>
-                      <td className="text-center">
-                        <button className="delete-row-btn" title="O'chirish">
-                          <FaTrash />
-                        </button>
-                        <button className="edit-row-btn" title="Edit">
-                          <FaEdit />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                {users.map((user, index) => (
+                  <tr key={user.id}>
+                    <td>
+                      <div className="avatar-mini">{index + 1}</div>
+                    </td>
+
+                    <td>{user.name}</td>
+
+                    <td>{user.email}</td>
+
+                    <td>{user.phone}</td>
+
+                    <td className="text-center">
+                      <button
+                        className="delete-row-btn"
+                        title="O'chirish"
+                        onClick={() =>
+                          setUsers((prevUsers) =>
+                            prevUsers.filter(
+                              (item) => item.id !== user.id
+                            )
+                          )
+                        }
+                      >
+                        <FaTrash />
+                      </button>
+
+                      <button
+                        className="edit-row-btn"
+                        title="Tahrirlash"
+                      >
+                        <FaEdit />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           ) : (
             <div className="no-users">
-              <p>
-                Foydalanuvchilar mavjud emas. Yuqoridagi "Qo'shish" tugmasi
-                orqali yangi foydalanuvchi qo'shing.
-              </p>
+              <p>Foydalanuvchilar mavjud emas.</p>
             </div>
           )}
         </div>

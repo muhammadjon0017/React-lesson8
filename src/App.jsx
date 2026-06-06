@@ -1,29 +1,58 @@
-import { useState } from "react";
-// Styles
+import { useState, useEffect } from "react";
 import "./App.css";
 import Home from "./Components/Home/Home";
 import Navbar from "./Components/Navbar/Navbar";
 import Sidebar from "./Components/Sidebar/Sidebar";
-// import Modal from "./Components/Modal/Modal";
+import Modal from "./Components/Modal/Modal";
 
 function App() {
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      name: "Muhammad Samatov",
-      email: "muhammad@example.com",
-      phone: "+998 90 012 00 17",
-    },
-  ]);
+  const [boll, setBoll] = useState(false);
+
+  const [users, setUsers] = useState(() => {
+    const savedUsers = localStorage.getItem("users");
+
+    return savedUsers
+      ? JSON.parse(savedUsers)
+      : [
+          {
+            id: 1,
+            name: "Muhammad Samatov",
+            email: "muhammad@example.com",
+            phone: "+998 90 012 00 17",
+          },
+        ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
+
+  function getData(newUser) {
+    setUsers((prevUsers) => [...prevUsers, newUser]);
+  }
 
   return (
     <>
       <Sidebar />
+
       <div className="main__container">
-        <Navbar />
-        <Home users={users} />
+        <Navbar
+          setBoll={setBoll}
+          users={users}
+        />
+
+        <Home
+          users={users}
+          setUsers={setUsers}
+        />
       </div>
-      {/* <Modal /> */}
+
+      {boll && (
+        <Modal
+          setBoll={setBoll}
+          getData={getData}
+        />
+      )}
     </>
   );
 }
