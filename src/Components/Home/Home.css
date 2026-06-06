@@ -1,0 +1,148 @@
+.home {
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 70px);
+}
+
+.home__container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.home__header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home__header h1 {
+  color: #2c3e50;
+  margin-bottom: 8px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.home__header p {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.home__table-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #eef0f3;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.user-table thead {
+  background-color: #f1f4f8;
+}
+
+.user-table th {
+  padding: 15px 20px;
+  color: #495057;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #eef0f3;
+}
+
+.th-icon {
+  margin-right: 8px;
+  margin-bottom: -2px;
+  color: #007bff;
+}
+
+.user-table td {
+  padding: 15px 20px;
+  color: #333;
+  border-bottom: 1px solid #f1f4f8;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.user-table tbody tr:hover {
+  background-color: #f8f9ff;
+}
+
+.user-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.avatar-mini {
+  width: 32px;
+  height: 32px;
+  background-color: #e7f1ff;
+  color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lilita One", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.delete-row-btn {
+  background: none;
+  border: 1px solid #ffeded;
+  color: #ff4d4d;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.edit-row-btn {
+  background: none;
+  border: 1px solid #ffeded;
+  color: #30e339;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-row-btn:hover {
+  background-color: #ff4d4d;
+  color: white;
+  border-color: #ff4d4d;
+  transform: scale(1.1);
+}
+
+.edit-row-btn:hover {
+  background-color: #30e339;
+  color: white;
+  border-color: #30e339;
+  transform: scale(1.1);
+}
+
+.no-users {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
